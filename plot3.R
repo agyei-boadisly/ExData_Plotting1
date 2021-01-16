@@ -15,10 +15,7 @@ plotdata$DateTime <- as.POSIXct(plotdata$DateTime)
 ## open .png 
 png(filename = "plot2.png", width = 480, height = 480)
 
-## creating our plot
-with(plotdata, plot(Global_active_power ~ DateTime, 
-                   ylab = "Global Active Power (kilowatts)", xlab = "", 
-                   type = "l"))
-
-## Closing our device to generate our plot.png
-dev.off()
+## creating our plots
+with(subdata, plot(Sub_metering_1 ~ DateTime, type = "l", ylab = "Energy sub metering", xlab = ""))
+with(subdata, lines(Sub_metering_2 ~ DateTime, col = "Red"))
+with(subdata, lines(Sub_metering_3 ~ DateTime, col = "Blue"))
